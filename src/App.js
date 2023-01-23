@@ -9,35 +9,40 @@ class App extends Component {
   }
   setFunction = () => {
      this.setState(preveState => ({isLogged : !preveState.isLogged}))
-   }
-   
-   
-
-render() {
-  const { isLogged } = this.state
-     let authButton = null;
+  }
+  
+  buttonFunction = () => {
+    const { isLogged } = this.state
+    
     if (isLogged === true) {
-      authButton = <button className="buttons" onClick ={this.setFunction}>LOGOUT</button>
+      return <button className="buttons" onClick ={this.setFunction}>LOGOUT</button>
     }
     else {
-       authButton = <button className="buttons" onClick ={this.setFunction}>LOGIN</button>
+       return <button className="buttons" onClick ={this.setFunction}>LOGIN</button>
     }
-
+  }
+    
+  render() {
     return( 
       <div className="main-container">
         <div className="sub-container">
           <Login name="Hello User" />
-          {authButton}
-     
+          {this.buttonFunction()}
         </div>
       </div>
-               
-        )
-    }
+     )
   }
-  
-  
+  }
   export default App
+  
+   
+   
+   
+
+   
+             
+
+
         
         
 
